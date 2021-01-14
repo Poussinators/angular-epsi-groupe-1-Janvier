@@ -14,20 +14,30 @@ export class AppComponent {
   constructor(
     private sessionService: SessionService,
     private router: Router,
-    public snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) {}
 
   get isSignedIn(): boolean {
     return AuthService.isSignedIn;
   }
 
+  get isAdmin(): boolean {
+    return AuthService.isAdmin;
+  }
+
+  get isOnLandingPage(): boolean {
+    return this.router.url == '/auth/landing';
+  }
+
   signout(): void {
     AuthService.user = null;
     this.sessionService.clear();
     this.router.navigate(['/auth/signin']);
-    const snackBarRef = this.snackBar.open('Déconnecté avec succès', 'Retour', {
-      duration: 2000
+
+    this.snackBar.open('Vous avez été déconnecté.', 'Ok', {
+      duration: 3000
     });
+
   }
 
 }
