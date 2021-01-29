@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CoreModule} from './core/core.module';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ApiInterceptor} from './core/api.interceptor';
 import {SharedModule} from './shared/shared.module';
-import {MatButtonModule, MatSnackBarModule} from '@angular/material'
+import {MatButtonModule, MatSnackBarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -22,6 +22,7 @@ import {MatButtonModule, MatSnackBarModule} from '@angular/material'
     SharedModule,
     MatButtonModule,
     MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [
     {

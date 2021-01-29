@@ -1,1 +1,24 @@
-<p>Admin</p>
+<div class="container">
+  <h1>Administration</h1>
+  <mat-form-field>
+    <label>
+      <input matInput placeholder="Filtre" name="srcBar" (change)="search($event)" (keyup)="search($event)" (keypress)="search($event)" (keydown)="search($event)">
+    </label>
+  </mat-form-field>
+
+  <table mat-table [dataSource]="displayedTags" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="iteration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Importance </th>
+      <td mat-cell *matCellDef="let element"> {{element.iteration}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div id="mat-paginator-container">
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

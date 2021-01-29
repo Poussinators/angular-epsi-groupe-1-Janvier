@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsComponent } from './components/components.component';
 import { AdminRoutingModule } from './admin-routing.module';
+import {MatInputModule, MatPaginatorModule, MatSortModule, MatTableModule} from '@angular/material';
 
 
 
@@ -9,7 +10,11 @@ import { AdminRoutingModule } from './admin-routing.module';
   declarations: [ComponentsComponent],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MatTableModule,
+    MatSortModule,
+    MatInputModule,
+    MatPaginatorModule
   ]
 })
 export class AdminModule { }
